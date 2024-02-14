@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Information Form</title>
+    <link rel="stylesheet" href="file:///D:/Docs/Major%20Project/Code/Web/end/data_enter.css" />
+  </head>
+  <body>
+    <div class="divOne" id="mainDiv">
+      <p>Information Form</p>
+      <main class="main">
+        <form name="my-form" action=" " method="post">
+          <div class="name-section">
+            <div class="insideName">
+              <label for="name" class="nameLabel">Name: </label>
+              <input type="text" id="name" required />
+            </div>
+          </div>
+
+          <div class="rest-section">
+            <div class="form-column">
+              <label for="iiD">ID</label>
+              <input type="text" id="iiD" />
+
+              <label for="gender">Gender:</label>
+              <select id="gender" name="gender" required>
+                <option value="1">male</option>
+                <option value="0">female</option>
+              </select>
+
+              <label for="age">Age:</label>
+              <input type="text" id="age" required />
+
+              <label for="debt">Debt:</label>
+              <input id="debt" name="debt" required />
+
+              <label for="married">Married:</label>
+              <select id="married" name="married" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <div class="form-column">
+              <label for="customer">Bank Customer:</label>
+              <select name="customer" id="customer" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+
+              <label for="time">Years Employed:</label>
+              <input type="text" id="time" required />
+
+              <label for="dfault">Prior Default</label>
+              <select name="dfault" id="dfault" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+
+              <label for="employed">Employment</label>
+              <select name="employed" id="employed" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+
+              <label for="creditScore">Credit Score</label>
+              <input type="text" id="creditScore" required />
+            </div>
+            <div class="form-column">
+              <label for="license">Drivers License</label>
+              <select name="license" id="license" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+
+              <label for="income">Income</label>
+              <input type="text" id="income" required />
+
+              <label for="industry">Industry</label>
+              <select name="industry" id="industry" required>
+                <option value="" id="CommunicationServices">
+                  Communication Services
+                </option>
+                <option value="" id="ConsumerDiscretionary">
+                  Consumer Discretionary
+                </option>
+                <option value="" id="CousumerStaples">Consumer Staples</option>
+                <option value="" id="Education">Education</option>
+                <option value="" id="Energy">Energy</option>
+                <option value="" id="Financials">Financials</option>
+                <option value="" id="Healthcare">Healthcare</option>
+                <option value="" id="Industrials">Indusrials</option>
+                <option value="" id="InformationTechnology">
+                  Information Technology
+                </option>
+                <option value="" id="Materials">Materials</option>
+                <option value="" id="RealEstate">Real Estate</option>
+                <option value="" id="Research">Research</option>
+                <option value="" id="Transport">Transport</option>
+                <option value="" id="Utilities">Utilities</option>
+              </select>
+
+              <label for="ethnicity">Ethnicity:</label>
+              <select name="ethnicity" id="ethnicity" required>
+                <option value="" id="Asian">Asian</option>
+                <option value="" id="Black">Black</option>
+                <option value="" id="Latino">Latino</option>
+                <option value="" id="Other">Other</option>
+                <option value="" id="White">White</option>
+              </select>
+
+              <label for="citizenship">Citizenship:</label>
+              <select name="citizenship" id="citizenship" required>
+                <option value="" id="ByBirth">By Birth</option>
+                <option value="" id="ByOtherMeans">By Other Means</option>
+                <option value="" id="Temporary">Temporary</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </main>
+      <button onclick="getValues();" class="submit">
+        Evaluate Eligibility
+      </button>
+    </div>
+  </body>
+  <script src="file:///D:/Docs/Major%20Project/Code/Web/end/array.js"></script>
+  <script src="file:///D:/Docs/Major%20Project/Code/Web/end/function.js"></script>
+</html>

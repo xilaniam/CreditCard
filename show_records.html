@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Records</title>
+    <style>
+        body {
+            background-color: #d9f9d9; /* Light green color for the entire page */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 3px solid #011e02;
+        }
+
+        th, td {
+            border: 1px solid #011e02;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50; /* Green color for table header */
+            color: rgb(0, 0, 0); /* Text color for table header */
+            text-align: center; /* Center align text in header */
+            border: 2px solid #011e02;
+        }
+
+        table thead tr {
+            background-color: #8FBC8F; /* Light green color for thead background */
+        }
+
+        tbody {
+            border-top: 2px solid #4CAF50; /* Horizontal line or border color */
+            border-bottom: 2px solid #4CAF50; /* Adjust border color as needed */
+        }
+
+        tbody tr:hover {
+            background-color: #f5f5f5; /* Add a hover effect to rows if needed */
+        }
+
+        h2 {
+            text-align: center; /* Center align heading */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Customer Records</h2>
+
+    <table id="recordsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Debt</th>
+                <th>Married</th>
+                <th>bankcustomer</th>
+                <th>industry</th>
+                <th>ethnicity</th>
+                <th>Years Employed</th>
+                <th>prior default</th>
+                <th>employed</th>
+                <th>Creditscore</th>
+                <th>Driverslicense</th>
+                <th>Citizen</th>
+                <th>income</th>
+                <th>Approval</th>
+                <th>Result</th>
+                <!-- Add more columns as needed based on your record structure -->
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Table rows will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <script>
+        let values = [];
+        let flag = "";
+        // Function to create a table row based on the record infos
+        function createTableRow(record) {
+            const row = document.createElement('tr');
+    
+            // Iterate through each property in the record
+            for (const key in record) {
+                const cell = document.createElement('td');
+                cell.textContent = record[key];
+                row.appendChild(cell);
+            }
+    
+            // Add a button to the last cell
+            const buttonCell = document.createElement('td');
+            const button = document.createElement('button');
+            button.textContent = 'Check';
+
+            // Add styles to the button
+            button.style.border = 'none'; // Remove the button border
+            button.style.borderRadius = '10px';
+            button.style.fontSize = '16px';
+            button.style.padding = '12px 20px';
+            buttonCell.style.textAlign = 'center';
+            button.style.backgroundColor = '#8FBC8F'; // Light green color for the button
+            button.style.color = '#000000'; // White text color for the button
+            button.addEventListener('mouseover', () => {
+                button.style.backgroundColor = '#70A180'; // Darker green color on hover
+                button.style.cursor = 'pointer'; // Set a custom cursor on hover
+            });
+
+            button.addEventListener('click', () => {
+                const infos = Object.values(record);
+                let resultCell = row.querySelector('.result');
+                if (!resultCell) {
+                    resultCell = document.createElement('td');
+                    resultCell.classList.add('result');
+                    row.appendChild(resultCell);
+                }
+                console.log(infos)
+                //For industry start
+                const industryKeys = ["CommunicationServices", "ConsumerDiscretionary", "ConsumerStaples", "Education", "Energy", "Financials", "Healthcare", "Industrials", "InformationTechnology", "Materials", "RealEstate", "Research", "Transport", "Utilities"];
+                const industIndex = 7;
+                const matchedIndustry = industryKeys.find(key => infos[industIndex] === key);
+                indstArray = []
+                if (matchedIndustry) {
+                indstArray = industryKeys.map(key => key === matchedIndustry ? 1 : 0);
+                } else {
+                console.log("No match found");
+                }
+                //For industry end
+                //****************
+                //****************
+                //For Ethnicity start
+                const ethnicityKeys = ["Asian", "Black", "Latino", "Other", "White"];
+                const ethIndex = 8;
+                const matchedEthnicity = ethnicityKeys.find(key => infos[ethIndex] === key);
+                ethArray = []
+                if (matchedEthnicity) {
+                ethArray = ethnicityKeys.map(key => key === matchedEthnicity ? 1 : 0);
+                } else {
+                console.log("No match found");
+                }
+                //Ethnicity end
+                //****************
+                //****************
+                //For Citizen start
+                const citizenshipKeys = ["ByBirth", "ByOtherMeans", "Temporary"];
+                const ctzIndex = 14;
+                const matchedCitizenship = citizenshipKeys.find(key => infos[ctzIndex] === key);
+                ctzArray = []
+                if (matchedCitizenship) {
+                ctzArray = citizenshipKeys.map(key => key === matchedCitizenship ? 1 : 0);
+                } else {
+                console.log("No match found");
+                }
+                //Citizen End*/
+                //******************
+                //Gender Start
+                const gndKeys = ["M", "F"];
+                const gndIndex = 2;
+                const matchedGender= gndKeys.find(key => infos[gndIndex] === key);
+                let gndValue
+                if (matchedGender ==="M") {
+                    gndValue = 1
+                    } else if(matchedGender === "F") {
+                    gndValue = 0
+                    }
+                //Gender End
+                //*********************
+                // Marital Status
+                const marredKeys = ["Y", "N"];
+                const marredIndex = 5;
+                const matchedMarried = marredKeys.find(key => infos[marredIndex] === key);
+                let marredValue; // Variable to store the value
+
+                if (matchedMarried === "Y") {
+                marredValue = 1;
+                } else if (matchedMarried === "N") {
+                marredValue = 0;
+                } else {
+                console.log("No match found for Marital Status");
+                }
+
+                // Bank Customer
+                const ctmrKeys = ["Y", "N"];
+                const ctmrIndex = 6;
+                const matchedCustomer = ctmrKeys.find(key => infos[ctmrIndex] === key);
+                let ctmrValue; // Variable to store the value
+
+                if (matchedCustomer === "Y") {
+                ctmrValue = 1;
+                } else if (matchedCustomer === "N") {
+                ctmrValue = 0;
+                } else {
+                console.log("No match found for Bank Customer Status");
+                }
+
+                // Prior Default
+                const pdefKeys = ["Y", "N"];
+                const pdefIndex = 11;
+                const matchedPriordef = pdefKeys.find(key => infos[pdefIndex] === key);
+                let pdefValue; // Variable to store the value
+
+                if (matchedPriordef === "Y") {
+                pdefValue = 1;
+                } else if (matchedPriordef === "N") {
+                pdefValue = 0;
+                } else {
+                console.log("No match found for Prior Default");
+                }
+
+                // Employment Status
+                const empKeys = ["Y", "N"];
+                const empIndex = 11;
+                const matchedEmployed = empKeys.find(key => infos[empIndex] === key);
+                let empValue; // Variable to store the value
+
+                if (matchedEmployed === "Y") {
+                empValue = 1;
+                } else if (matchedEmployed === "N") {
+                empValue = 0;
+                } else {
+                console.log("No match found for Employment Status");
+                }
+
+                // License Status
+                const lcsKeys = ["Y", "N"];
+                const lcsIndex = 13;
+                const matchedLicense = lcsKeys.find(key => infos[lcsIndex] === key);
+                let lcsValue; // Variable to store the value
+
+                if (matchedLicense === "Y") {
+                lcsValue = 1;
+                } else if (matchedLicense === "N") {
+                lcsValue = 0;
+                } else {
+                console.log("No match found for License Status");
+                }
+
+
+                
+                values.push(gndValue,infos[3],infos[4],marredValue,ctmrValue,infos[9],pdefValue,empValue,infos[12],lcsValue,infos[15],...indstArray,...ethArray,...ctzArray);
+                console.log(values)
+                makePrediction()
+                    .then(() => {
+                        if (flag == 1) {
+                            resultCell.textContent = 'Accepted';
+                        } else {
+                            resultCell.textContent = 'Rejected';
+                        }
+
+                        // Other actions after prediction if needed
+
+                        console.log(flag);
+                    })
+                    .catch(error => {
+                        console.error("Error in makePrediction: ", error);
+                        // Handle the error as needed
+                    });
+                //console.log(flag)
+            });
+            buttonCell.appendChild(button);
+            row.appendChild(buttonCell);
+            return row;
+        }
+    
+        // Fetch infos from the server
+        fetch('http://localhost:7000/getAllRecords')
+            .then(response => response.json())
+            .then(records => {
+                const tableBody = document.querySelector('#recordsTable tbody');
+    
+                // Clear existing rows
+                tableBody.innerHTML = '';
+    
+                // Append new rows
+                records.forEach(record => {
+                    tableBody.appendChild(createTableRow(record));
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please check the console for details.');
+            });
+
+            async function makePrediction() {
+            let output = "";
+            const postData = {
+            Gender: values[0],
+            Age: values[1],
+            Debt: values[2],
+            Married: values[3],
+            BankCustomer: values[4],
+            YearsEmployed: values[5],
+            PriorDefault: values[6],
+            Employed: values[7],
+            CreditScore: values[8],
+            DriversLicense: values[9],
+            Income: values[10],
+            Industry_CommunicationServices: values[11],
+            Industry_ConsumerDiscretionary: values[12],
+            Industry_ConsumerStaples: values[13],
+            Industry_Education: values[14],
+            Industry_Energy: values[15],
+            Industry_Financials: values[16],
+            Industry_Healthcare: values[17],
+            Industry_Industrials: values[18],
+            Industry_InformationTechnology: values[19],
+            Industry_Materials: values[20],
+            "Industry_Real Estate": values[21],
+            Industry_Research: values[22],
+            Industry_Transport: values[23],
+            Industry_Utilities: values[24],
+            Ethnicity_Asian: values[25],
+            Ethnicity_Black: values[26],
+            Ethnicity_Latino: values[27],
+            Ethnicity_Other: values[28],
+            Ethnicity_White: values[29],
+            Citizen_ByBirth: values[30],
+            Citizen_ByOtherMeans: values[31],
+            Citizen_Temporary: values[32],
+            };
+        
+            const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify(postData),
+            credentials: "same-origin",
+            };
+        
+            try {
+            const response = await fetch("http://localhost:5000/prediction", options);
+        
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+        
+            const result = await response.json();
+
+            parsedPrediction = JSON.parse(result.prediction);
+            if (parsedPrediction[0] === 1) {
+                flag = "1"
+                console.log("ok")
+            } else {
+                flag = "0"
+                console.log("notok")
+            } 
+            //console.log(result);
+            } catch (error) {
+            alert("There was a problem with the POST request: ", error);
+            }
+            values.splice(0,values.length);
+        }
+    </script>
+</body>
+
+</html>

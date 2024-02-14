@@ -1,0 +1,147 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  width: 100%;
+}
+
+form {
+  background-color: #9fbde0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: auto;
+  animation: fadeInUp 0.5s ease-in-out;
+}
+
+label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #000000;
+  font-weight: bold;
+}
+
+input,
+select {
+  max-width: 250px;
+  width: 100%;
+  font-size: 15px;
+  outline: none;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.divOne {
+  background-color: rgb(120, 159, 255);
+  border-radius: 10px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  max-width: 800px;
+  width: 75%;
+}
+
+.divOne p {
+  color: rgb(1, 17, 67);
+  font-size: 25px;
+  font-weight: bold;
+  padding: 10px 25px;
+  text-decoration: underline;
+}
+
+.submit {
+  margin-top: 10px;
+  background-color: #12a302;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px 25px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.submit:active {
+  box-shadow: none;
+}
+
+.nameLabel {
+  margin-right: 10px;
+}
+
+.finalDisp {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.output {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  padding-top: 25px;
+  padding-bottom: 10px;
+  margin-bottom: 40px;
+}
+
+.redirectDiv,
+.recordsDiv,
+.homeDiv {
+  margin-bottom: 40px;
+}
+
+.redirectButton,
+.recordsButton,
+.homeButton {
+  background-color: #00aa1a;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.rest-section {
+  display: flex;
+  justify-content: space-between;
+}
+.name-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.insideName {
+  display: flex;
+  flex-direction: column;
+}
